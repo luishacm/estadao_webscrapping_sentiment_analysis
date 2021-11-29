@@ -182,7 +182,6 @@ class columnize:
             else:
                 if (i[3]-i[1]) > 200:
                     self.final_img = self.cropped_img.crop(i)
-                    self.final_img.show()
     
     def find_article_sections(self):
         #This will separate each article into multiple columns. Each column will have its own rectangle.
