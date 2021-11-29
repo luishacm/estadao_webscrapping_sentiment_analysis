@@ -74,8 +74,7 @@ def select_text(text):
         for o in keywords:
             if o in i:
                 return text        
-    not_selected = 0
-    return not_selected
+    return False
 
 
 def select_sentiment(text, f):
@@ -138,14 +137,15 @@ if __name__ == '__main__':
         print(end - start)
         text = clean_text(text)
         text = select_text(text)
-        if text == 0:
-            continue
-        else:
+        if text:
             str_text = lista = ' '.join(map(str, text))
             with open("txt banco/{}.txt".format(f[:-4]), "w+", encoding='utf-8') as output:
                 output.write(str_text)
+         else:
+            continue
+            
         if only_clean is False:
             approved = select_sentiment(text, f)
-            if approved is False:
+            if not approved:
                 os.remove("txt banco/{}.txt".format(f[:-4]))   
 
