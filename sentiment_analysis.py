@@ -13,17 +13,6 @@ for sign in signs_to_delet:
 df_sentiments = pd.read_excel('Planilhas/articles sentiment.xlsx', engine='openpyxl')
 pre_text_pos = [word_tokenize(f.lower()) for f in df_sentiments[(df_sentiments['Sentimento']==1)]['Texto'].tolist()]
 pre_text_neg = [word_tokenize(f.lower())  for f in df_sentiments[(df_sentiments['Sentimento']==-1)]['Texto'].tolist()]
-
-# pre_text_neg = pre_text_neg[:len(pre_text_pos)]
-# print(len(pre_text_pos))
-# print(len(pre_text_neg))
-
-#This will create a list of nouns, adverbs, verbs, etc
-# https://github.com/fmaruki/Nltk-Tagger-Portuguese
-# lines = 'lines is some string of words'
-# tokenized = nltk.word_tokenize(lines)
-# nouns = [word for (word, pos) in nltk.pos_tag(tokenized) if(pos[:2] == 'NN')]
-# print (nouns)
     
 text_pos = []
 for word_lista in pre_text_pos:
